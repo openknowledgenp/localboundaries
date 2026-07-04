@@ -2,9 +2,24 @@
 $base-font-family:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
 $heading-font-family: 'Miriam Libre', ui-sans-serif, system-ui, sans-serif;
 $base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.895;
 $base-line-height: 1.5;
 $spacing-unit:     30px;
+
+// Type scale: one consistent set of sizes for the whole site.
+// Use these instead of one-off em/px values so hierarchy stays legible
+// and predictable across the header, footer, and every page.
+$fs-2xs:  0.6875rem; // 11px - overline/eyebrow labels (uppercase, letter-spaced)
+$fs-xs:   0.75rem;   // 12px - fine print: file sizes, footer legal line, stat labels
+$fs-sm:   0.8125rem; // 13px - footer body text, secondary UI copy
+$fs-nav:  0.875rem;  // 14px - nav links, table text, card descriptions
+$fs-base: 1rem;      // 16px - body copy (the default)
+$fs-md:   1.0625rem; // 17px - lead paragraphs, hero tagline
+$fs-lg:   1.25rem;   // 20px - h3 / minor headings
+$fs-xl:   1.5rem;    // 24px - h2 / section headings
+$fs-2xl:  1.875rem;  // 30px - h1 / page headings
+$fs-3xl:  2.25rem;   // 36px - stat tile numbers
+$fs-hero: 2.75rem;   // 44px - hero display heading
+$fs-hero-palm: 1.875rem; // 30px - hero heading on small screens
 
 $text-color:       #374151;
 $background-color: #FFF;

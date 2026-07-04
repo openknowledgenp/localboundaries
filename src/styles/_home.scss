@@ -14,16 +14,16 @@
 }
 
 .hero h1 {
-  font-size: 2.2em;
+  font-size: $fs-hero;
   margin-bottom: 0.4em;
 
   @include media-query($on-palm) {
-    font-size: 1.6em;
+    font-size: $fs-hero-palm;
   }
 }
 
 .hero-tagline {
-  font-size: 1.1em;
+  font-size: $fs-md;
   opacity: 0.95;
   margin-bottom: 1.6em;
 }
@@ -39,7 +39,7 @@
     flex: 1;
     border: none;
     padding: 14px 18px;
-    font-size: 1em;
+    font-size: $fs-base;
     font-family: $base-font-family;
     color: $text-color;
 
@@ -53,7 +53,7 @@
     background: color.adjust($brand-color, $lightness: -15%);
     color: #fff;
     padding: 0 24px;
-    font-size: 1em;
+    font-size: $fs-base;
     font-weight: bold;
     cursor: pointer;
 
@@ -89,14 +89,15 @@
 
 .stat-number {
   display: block;
-  font-size: 1.8em;
+  font-family: $heading-font-family;
+  font-size: $fs-3xl;
   font-weight: bold;
   color: color.adjust($brand-color, $lightness: -10%);
 }
 
 .stat-label {
   display: block;
-  font-size: 0.8em;
+  font-size: $fs-xs;
   color: $grey-color;
   margin-top: 4px;
 }
@@ -126,7 +127,7 @@
 
   p {
     color: $grey-color;
-    font-size: 0.95em;
+    font-size: $fs-nav;
   }
 }
 
@@ -175,7 +176,7 @@
 
   p {
     color: $grey-color;
-    font-size: 0.9em;
+    font-size: $fs-nav;
     margin-bottom: 0;
   }
 }

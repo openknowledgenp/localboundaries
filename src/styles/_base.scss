@@ -43,12 +43,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-h1 { font-size: 1.9em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1.3em; }
-h4 { font-size: 1em; }
-h5 { font-size: .9em; }
-h6 { font-size: .8em; }
+h1 { font-size: $fs-2xl; }
+h2 { font-size: $fs-xl; }
+h3 { font-size: $fs-lg; }
+h4 { font-size: $fs-md; }
+h5 { font-size: $fs-base; }
+h6 { font-size: $fs-nav; }
 
 a {
   color: color.adjust($brand-color, $lightness: -10%);
@@ -92,5 +92,5 @@ table {
 .file-size {
   font-weight: 400;
   color: $grey-color;
-  font-size: 0.85em;
+  font-size: $fs-xs;
 }

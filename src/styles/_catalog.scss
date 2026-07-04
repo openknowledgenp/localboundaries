@@ -21,7 +21,7 @@
   padding: 30px 0;
 
   h2 {
-    font-size: 0.95em;
+    font-size: $fs-lg;
     margin-bottom: 1em;
   }
 
@@ -38,13 +38,13 @@
 
 .catalog-nav-heading {
   font-weight: bold;
-  font-size: 0.85em;
+  font-size: $fs-nav;
   margin-bottom: 0.4em;
 }
 
 .catalog-nav-group a {
   display: block;
-  font-size: 0.85em;
+  font-size: $fs-sm;
   padding: 3px 0 3px 10px;
   color: $grey-color-dark;
   border-left: 2px solid $grey-color-light;
@@ -80,7 +80,7 @@
     padding: 10px 14px;
     border: 1px solid $grey-color-light;
     border-radius: 4px;
-    font-size: 1em;
+    font-size: $fs-base;
     font-family: $base-font-family;
   }
 }
@@ -97,7 +97,7 @@
 }
 
 .catalog-section-note {
-  font-size: 0.9em;
+  font-size: $fs-nav;
   color: $grey-color;
   margin-bottom: 16px;
 }
@@ -109,7 +109,7 @@
 .catalog-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9em;
+  font-size: $fs-nav;
 
   th,
   td {
