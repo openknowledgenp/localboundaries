@@ -3,11 +3,15 @@
   {% include head.html %}
   <body>
     {% include header.html %}
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+    {% if page.full_bleed %}
+      {{ content }}
+    {% else %}
+      <div class="page-content">
+        <div class="wrapper">
+          {{ content }}
+        </div>
       </div>
-    </div>
+    {% endif %}
     {% include footer.html %}
   </body>
 </html>

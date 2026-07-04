@@ -1,55 +1,98 @@
 ---
 layout: default
+full_bleed: true
 ---
 
-<div class="home">
-  <div class="page-content">
-
-    <p> With the promulgation of the <a href="https://en.wikipedia.org/wiki/Constitution_of_Nepal">Constitution of
-        Nepal in 2015</a>, the country restructured into a <a
-        href="https://en.wikipedia.org/wiki/Federalism_in_Nepal">Federal Democratic Republic</a> made up of 7
-      provinces and 753 local levels, categorized as rural municipality, municipality, metropolitan and
-      sub-metropolitan. The first local elections under this new structure were held in 2017.
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Local Boundaries of Nepal</h1>
+    <p class="hero-tagline">
+      Open, reusable administrative boundary data for Nepal's provinces, districts, and local
+      levels &mdash; in GeoJSON, TopoJSON, Shapefile, KML, and GeoPackage.
     </p>
-    <p>
-      <b>Local Boundaries</b> brings the detailed geodata of administrative units or maps of all administrative
-      boundaries defined by the Government
-      of Nepal, in an open and reusable format. The local boundaries are available in two formats (TopoJSON and GeoJSON)
-      and
-      can be easily reused to map local levels data to OpenStreetMap, Google Map, Leaflet or MapBox interactively.
-    </p>
-    <h2>Why Local Boundaries</h2>
-    <ul>
-      <li> Local Boundaries allow anyone to quickly map local authority data to OpenStreetMap, Google Map, Leaflet or
-        MapBox interactively.</li>
-      <li> It lets developers create and visualize the local levels data in a map of Nepal for comparison and others
-        stuffs.</li>
-      <li> It can be useful for planning, analysis, monitoring and making decision by integrating with different
-        software tools and libraries. </li>
-      <li> It lets you visualize on a map where the lines being drawn, right down to the level of individual properties.
-      </li>
-    </ul>
-    <h3>Levels and types of local boundaries included</h3>
-    <ol>
-
-      <li> Provinces Level (7 Provinces) </li>
-      <li>Districts Level (77 Districts) </li>
-      <li>Local Levels (753 Local Levels) </li>
-      <b>Local Levels Includes:</b>
-      <ul>
-        <li>Rural Municipality (Gaupalika) </li>
-        <li> Municipality (Nagarpalika) </li>
-        <li> Metropolitan (Mahanagarpalika) </li>
-        <li> Sub-Metropolitan (Upamahanagarpalika) </li>
-        <li>National Parks </li>
-        <li>Wildlife Reserves </li>
-        <li>Hunting Reserves </li>
-      </ul>
-    </ol>
-    <h2>License</h2>
-    <p>
-      The datasets are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
-        Attribution 4.0 International (CC BY 4.0)</a>.
-    </p>
+    <form class="hero-search" action="{{ "/download/" | prepend: site.baseurl }}" method="get">
+      <input type="search" name="q" placeholder="Search a province, district, or local level&hellip;" aria-label="Search boundary data">
+      <button type="submit">Search</button>
+    </form>
   </div>
-</div>
+</section>
+
+<section class="stat-tiles">
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.provinces }}</span>
+    <span class="stat-label">Provinces</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.districts }}</span>
+    <span class="stat-label">Districts</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.metropolitan }}</span>
+    <span class="stat-label">Metropolitan Cities</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.sub_metropolitan }}</span>
+    <span class="stat-label">Sub-Metropolitan Cities</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.municipality }}</span>
+    <span class="stat-label">Municipalities</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.rural_municipality }}</span>
+    <span class="stat-label">Rural Municipalities</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.local_levels }}</span>
+    <span class="stat-label">Local Levels Total</span>
+  </div>
+  <div class="stat-tile">
+    <span class="stat-number">{{ site.data.stats.protected_areas }}</span>
+    <span class="stat-label">Protected &amp; Special Areas</span>
+  </div>
+</section>
+
+<section class="feature-strip">
+  <div class="feature">
+    <div class="feature-icon">🔍</div>
+    <h3>Find data</h3>
+    <p>Browse boundaries by administrative level, or narrow down to a single province.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">⬇️</div>
+    <h3>Download in any format</h3>
+    <p>GeoJSON, TopoJSON, Shapefile, KML, or GeoPackage &mdash; pick whatever your tool needs.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">🗺️</div>
+    <h3>View on the map</h3>
+    <p>Explore every boundary interactively, layer by layer, before you download.</p>
+  </div>
+</section>
+
+<section class="wrapper content-section">
+  <p>
+    With the promulgation of the <a href="https://en.wikipedia.org/wiki/Constitution_of_Nepal">Constitution of
+      Nepal in 2015</a>, the country restructured into a
+    <a href="https://en.wikipedia.org/wiki/Federalism_in_Nepal">Federal Democratic Republic</a> made up of 7
+    provinces and local levels categorized as rural municipality, municipality, metropolitan, and
+    sub-metropolitan. The first local elections under this new structure were held in 2017.
+  </p>
+  <p>
+    <strong>Local Boundaries</strong> brings the detailed geodata of these administrative units, plus Nepal's
+    national parks and wildlife reserves, in an open and reusable format &mdash; free to reuse in QGIS, ArcGIS,
+    OpenStreetMap, Google Maps, Leaflet, or Mapbox.
+  </p>
+  <h2>Why Local Boundaries</h2>
+  <ul>
+    <li>Quickly map local authority data onto OpenStreetMap, Google Maps, Leaflet, or Mapbox.</li>
+    <li>Visualize and compare local-level data across Nepal for research or reporting.</li>
+    <li>Support planning, analysis, and monitoring by integrating with GIS software and libraries.</li>
+    <li>See exactly where administrative lines are drawn, down to the local level.</li>
+  </ul>
+  <h2>License</h2>
+  <p>
+    The datasets are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
+      Attribution 4.0 International (CC BY 4.0)</a>.
+  </p>
+</section>

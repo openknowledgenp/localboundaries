@@ -1,0 +1,566 @@
+{
+  "levels": [
+    {
+      "key": "province",
+      "label": "Provinces",
+      "scopes": [
+        {
+          "key": "nepal",
+          "label": "All Nepal (7 provinces)",
+          "feature_count": 7,
+          "files": {
+            "geojson": {
+              "path": "province/nepal.geojson",
+              "size": 6208164,
+              "size_human": "5.9 MB"
+            },
+            "topojson": {
+              "path": "province/nepal.topojson",
+              "size": 920178,
+              "size_human": "898.6 KB"
+            },
+            "shapefile": {
+              "path": "province/nepal.shp.zip",
+              "size": 1720595,
+              "size_human": "1.6 MB"
+            },
+            "kml": {
+              "path": "province/nepal.kml",
+              "size": 4792345,
+              "size_human": "4.6 MB"
+            },
+            "gpkg": {
+              "path": "province/nepal.gpkg",
+              "size": 2371584,
+              "size_human": "2.3 MB"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "district",
+      "label": "Districts",
+      "scopes": [
+        {
+          "key": "nepal",
+          "label": "All Nepal (77 districts)",
+          "feature_count": 77,
+          "files": {
+            "geojson": {
+              "path": "district/nepal.geojson",
+              "size": 2351978,
+              "size_human": "2.2 MB"
+            },
+            "topojson": {
+              "path": "district/nepal.topojson",
+              "size": 344605,
+              "size_human": "336.5 KB"
+            },
+            "shapefile": {
+              "path": "district/nepal.shp.zip",
+              "size": 659502,
+              "size_human": "644.0 KB"
+            },
+            "kml": {
+              "path": "district/nepal.kml",
+              "size": 1663315,
+              "size_human": "1.6 MB"
+            },
+            "gpkg": {
+              "path": "district/nepal.gpkg",
+              "size": 1011712,
+              "size_human": "988.0 KB"
+            }
+          }
+        },
+        {
+          "key": "koshi",
+          "label": "Koshi Province (14 districts)",
+          "feature_count": 14,
+          "files": {
+            "geojson": {
+              "path": "district/koshi.geojson",
+              "size": 403544,
+              "size_human": "394.1 KB"
+            },
+            "topojson": {
+              "path": "district/koshi.topojson",
+              "size": 74000,
+              "size_human": "72.3 KB"
+            },
+            "shapefile": {
+              "path": "district/koshi.shp.zip",
+              "size": 106944,
+              "size_human": "104.4 KB"
+            },
+            "kml": {
+              "path": "district/koshi.kml",
+              "size": 286148,
+              "size_human": "279.4 KB"
+            },
+            "gpkg": {
+              "path": "district/koshi.gpkg",
+              "size": 258048,
+              "size_human": "252.0 KB"
+            }
+          }
+        },
+        {
+          "key": "madhesh",
+          "label": "Madhesh Province (8 districts)",
+          "feature_count": 8,
+          "files": {
+            "geojson": {
+              "path": "district/madhesh.geojson",
+              "size": 198006,
+              "size_human": "193.4 KB"
+            },
+            "topojson": {
+              "path": "district/madhesh.topojson",
+              "size": 42443,
+              "size_human": "41.4 KB"
+            },
+            "shapefile": {
+              "path": "district/madhesh.shp.zip",
+              "size": 52589,
+              "size_human": "51.4 KB"
+            },
+            "kml": {
+              "path": "district/madhesh.kml",
+              "size": 141005,
+              "size_human": "137.7 KB"
+            },
+            "gpkg": {
+              "path": "district/madhesh.gpkg",
+              "size": 176128,
+              "size_human": "172.0 KB"
+            }
+          }
+        },
+        {
+          "key": "bagmati",
+          "label": "Bagmati Province (13 districts)",
+          "feature_count": 13,
+          "files": {
+            "geojson": {
+              "path": "district/bagmati.geojson",
+              "size": 390162,
+              "size_human": "381.0 KB"
+            },
+            "topojson": {
+              "path": "district/bagmati.topojson",
+              "size": 71780,
+              "size_human": "70.1 KB"
+            },
+            "shapefile": {
+              "path": "district/bagmati.shp.zip",
+              "size": 105591,
+              "size_human": "103.1 KB"
+            },
+            "kml": {
+              "path": "district/bagmati.kml",
+              "size": 276061,
+              "size_human": "269.6 KB"
+            },
+            "gpkg": {
+              "path": "district/bagmati.gpkg",
+              "size": 253952,
+              "size_human": "248.0 KB"
+            }
+          }
+        },
+        {
+          "key": "gandaki",
+          "label": "Gandaki Province (11 districts)",
+          "feature_count": 11,
+          "files": {
+            "geojson": {
+              "path": "district/gandaki.geojson",
+              "size": 350333,
+              "size_human": "342.1 KB"
+            },
+            "topojson": {
+              "path": "district/gandaki.topojson",
+              "size": 66260,
+              "size_human": "64.7 KB"
+            },
+            "shapefile": {
+              "path": "district/gandaki.shp.zip",
+              "size": 87912,
+              "size_human": "85.9 KB"
+            },
+            "kml": {
+              "path": "district/gandaki.kml",
+              "size": 247291,
+              "size_human": "241.5 KB"
+            },
+            "gpkg": {
+              "path": "district/gandaki.gpkg",
+              "size": 233472,
+              "size_human": "228.0 KB"
+            }
+          }
+        },
+        {
+          "key": "lumbini",
+          "label": "Lumbini Province (12 districts)",
+          "feature_count": 12,
+          "files": {
+            "geojson": {
+              "path": "district/lumbini.geojson",
+              "size": 330304,
+              "size_human": "322.6 KB"
+            },
+            "topojson": {
+              "path": "district/lumbini.topojson",
+              "size": 63548,
+              "size_human": "62.1 KB"
+            },
+            "shapefile": {
+              "path": "district/lumbini.shp.zip",
+              "size": 88434,
+              "size_human": "86.4 KB"
+            },
+            "kml": {
+              "path": "district/lumbini.kml",
+              "size": 234207,
+              "size_human": "228.7 KB"
+            },
+            "gpkg": {
+              "path": "district/lumbini.gpkg",
+              "size": 229376,
+              "size_human": "224.0 KB"
+            }
+          }
+        },
+        {
+          "key": "karnali",
+          "label": "Karnali Province (10 districts)",
+          "feature_count": 10,
+          "files": {
+            "geojson": {
+              "path": "district/karnali.geojson",
+              "size": 380745,
+              "size_human": "371.8 KB"
+            },
+            "topojson": {
+              "path": "district/karnali.topojson",
+              "size": 74367,
+              "size_human": "72.6 KB"
+            },
+            "shapefile": {
+              "path": "district/karnali.shp.zip",
+              "size": 102676,
+              "size_human": "100.3 KB"
+            },
+            "kml": {
+              "path": "district/karnali.kml",
+              "size": 268795,
+              "size_human": "262.5 KB"
+            },
+            "gpkg": {
+              "path": "district/karnali.gpkg",
+              "size": 245760,
+              "size_human": "240.0 KB"
+            }
+          }
+        },
+        {
+          "key": "sudurpashchim",
+          "label": "Sudurpashchim Province (9 districts)",
+          "feature_count": 9,
+          "files": {
+            "geojson": {
+              "path": "district/sudurpashchim.geojson",
+              "size": 299808,
+              "size_human": "292.8 KB"
+            },
+            "topojson": {
+              "path": "district/sudurpashchim.topojson",
+              "size": 57706,
+              "size_human": "56.4 KB"
+            },
+            "shapefile": {
+              "path": "district/sudurpashchim.shp.zip",
+              "size": 79415,
+              "size_human": "77.6 KB"
+            },
+            "kml": {
+              "path": "district/sudurpashchim.kml",
+              "size": 212485,
+              "size_human": "207.5 KB"
+            },
+            "gpkg": {
+              "path": "district/sudurpashchim.gpkg",
+              "size": 212992,
+              "size_human": "208.0 KB"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "key": "local-level",
+      "label": "Local Levels",
+      "scopes": [
+        {
+          "key": "nepal",
+          "label": "All Nepal (777 units)",
+          "feature_count": 777,
+          "files": {
+            "geojson": {
+              "path": "local-level/nepal.geojson",
+              "size": 7034078,
+              "size_human": "6.7 MB"
+            },
+            "topojson": {
+              "path": "local-level/nepal.topojson",
+              "size": 1073332,
+              "size_human": "1.0 MB"
+            },
+            "shapefile": {
+              "path": "local-level/nepal.shp.zip",
+              "size": 1479421,
+              "size_human": "1.4 MB"
+            },
+            "kml": {
+              "path": "local-level/nepal.kml",
+              "size": 5203181,
+              "size_human": "5.0 MB"
+            },
+            "gpkg": {
+              "path": "local-level/nepal.gpkg",
+              "size": 3399680,
+              "size_human": "3.2 MB"
+            }
+          }
+        },
+        {
+          "key": "koshi",
+          "label": "Koshi Province (139 units)",
+          "feature_count": 139,
+          "files": {
+            "geojson": {
+              "path": "local-level/koshi.geojson",
+              "size": 1242811,
+              "size_human": "1.2 MB"
+            },
+            "topojson": {
+              "path": "local-level/koshi.topojson",
+              "size": 212187,
+              "size_human": "207.2 KB"
+            },
+            "shapefile": {
+              "path": "local-level/koshi.shp.zip",
+              "size": 260428,
+              "size_human": "254.3 KB"
+            },
+            "kml": {
+              "path": "local-level/koshi.kml",
+              "size": 920831,
+              "size_human": "899.2 KB"
+            },
+            "gpkg": {
+              "path": "local-level/koshi.gpkg",
+              "size": 704512,
+              "size_human": "688.0 KB"
+            }
+          }
+        },
+        {
+          "key": "madhesh",
+          "label": "Madhesh Province (140 units)",
+          "feature_count": 140,
+          "files": {
+            "geojson": {
+              "path": "local-level/madhesh.geojson",
+              "size": 808126,
+              "size_human": "789.2 KB"
+            },
+            "topojson": {
+              "path": "local-level/madhesh.topojson",
+              "size": 152558,
+              "size_human": "149.0 KB"
+            },
+            "shapefile": {
+              "path": "local-level/madhesh.shp.zip",
+              "size": 162547,
+              "size_human": "158.7 KB"
+            },
+            "kml": {
+              "path": "local-level/madhesh.kml",
+              "size": 618644,
+              "size_human": "604.1 KB"
+            },
+            "gpkg": {
+              "path": "local-level/madhesh.gpkg",
+              "size": 487424,
+              "size_human": "476.0 KB"
+            }
+          }
+        },
+        {
+          "key": "bagmati",
+          "label": "Bagmati Province (124 units)",
+          "feature_count": 124,
+          "files": {
+            "geojson": {
+              "path": "local-level/bagmati.geojson",
+              "size": 1085038,
+              "size_human": "1.0 MB"
+            },
+            "topojson": {
+              "path": "local-level/bagmati.topojson",
+              "size": 190025,
+              "size_human": "185.6 KB"
+            },
+            "shapefile": {
+              "path": "local-level/bagmati.shp.zip",
+              "size": 232145,
+              "size_human": "226.7 KB"
+            },
+            "kml": {
+              "path": "local-level/bagmati.kml",
+              "size": 804400,
+              "size_human": "785.5 KB"
+            },
+            "gpkg": {
+              "path": "local-level/bagmati.gpkg",
+              "size": 622592,
+              "size_human": "608.0 KB"
+            }
+          }
+        },
+        {
+          "key": "gandaki",
+          "label": "Gandaki Province (89 units)",
+          "feature_count": 89,
+          "files": {
+            "geojson": {
+              "path": "local-level/gandaki.geojson",
+              "size": 918843,
+              "size_human": "897.3 KB"
+            },
+            "topojson": {
+              "path": "local-level/gandaki.topojson",
+              "size": 159009,
+              "size_human": "155.3 KB"
+            },
+            "shapefile": {
+              "path": "local-level/gandaki.shp.zip",
+              "size": 195566,
+              "size_human": "191.0 KB"
+            },
+            "kml": {
+              "path": "local-level/gandaki.kml",
+              "size": 674586,
+              "size_human": "658.8 KB"
+            },
+            "gpkg": {
+              "path": "local-level/gandaki.gpkg",
+              "size": 520192,
+              "size_human": "508.0 KB"
+            }
+          }
+        },
+        {
+          "key": "lumbini",
+          "label": "Lumbini Province (113 units)",
+          "feature_count": 113,
+          "files": {
+            "geojson": {
+              "path": "local-level/lumbini.geojson",
+              "size": 1083195,
+              "size_human": "1.0 MB"
+            },
+            "topojson": {
+              "path": "local-level/lumbini.topojson",
+              "size": 185063,
+              "size_human": "180.7 KB"
+            },
+            "shapefile": {
+              "path": "local-level/lumbini.shp.zip",
+              "size": 225455,
+              "size_human": "220.2 KB"
+            },
+            "kml": {
+              "path": "local-level/lumbini.kml",
+              "size": 798512,
+              "size_human": "779.8 KB"
+            },
+            "gpkg": {
+              "path": "local-level/lumbini.gpkg",
+              "size": 593920,
+              "size_human": "580.0 KB"
+            }
+          }
+        },
+        {
+          "key": "karnali",
+          "label": "Karnali Province (79 units)",
+          "feature_count": 79,
+          "files": {
+            "geojson": {
+              "path": "local-level/karnali.geojson",
+              "size": 945740,
+              "size_human": "923.6 KB"
+            },
+            "topojson": {
+              "path": "local-level/karnali.topojson",
+              "size": 164559,
+              "size_human": "160.7 KB"
+            },
+            "shapefile": {
+              "path": "local-level/karnali.shp.zip",
+              "size": 208979,
+              "size_human": "204.1 KB"
+            },
+            "kml": {
+              "path": "local-level/karnali.kml",
+              "size": 690896,
+              "size_human": "674.7 KB"
+            },
+            "gpkg": {
+              "path": "local-level/karnali.gpkg",
+              "size": 520192,
+              "size_human": "508.0 KB"
+            }
+          }
+        },
+        {
+          "key": "sudurpashchim",
+          "label": "Sudurpashchim Province (93 units)",
+          "feature_count": 93,
+          "files": {
+            "geojson": {
+              "path": "local-level/sudurpashchim.geojson",
+              "size": 951249,
+              "size_human": "929.0 KB"
+            },
+            "topojson": {
+              "path": "local-level/sudurpashchim.topojson",
+              "size": 164327,
+              "size_human": "160.5 KB"
+            },
+            "shapefile": {
+              "path": "local-level/sudurpashchim.shp.zip",
+              "size": 206124,
+              "size_human": "201.3 KB"
+            },
+            "kml": {
+              "path": "local-level/sudurpashchim.kml",
+              "size": 701452,
+              "size_human": "685.0 KB"
+            },
+            "gpkg": {
+              "path": "local-level/sudurpashchim.gpkg",
+              "size": 544768,
+              "size_human": "532.0 KB"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

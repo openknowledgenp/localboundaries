@@ -1,0 +1,94 @@
+---
+layout: default
+title: Download
+permalink: /download/
+full_bleed: true
+---
+
+<div class="catalog-page wide-wrapper">
+  <h1>Download Catalog</h1>
+  <p>
+    All boundaries are in WGS84 (EPSG:4326). Pick a level, optionally narrow it to one province, then
+    choose whichever format your tool needs.
+  </p>
+
+  <div class="catalog-controls">
+    <input type="search" id="catalog-search" placeholder="Search by province or district name&hellip;">
+    <select id="catalog-level-filter">
+      <option value="">All levels</option>
+      {% for level in site.data.datasets.levels %}
+        <option value="{{ level.key }}">{{ level.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="catalog-table-wrap">
+    <table class="catalog-table">
+      <thead>
+        <tr>
+          <th>Dataset</th>
+          <th>Features</th>
+          <th>GeoJSON</th>
+          <th>TopoJSON</th>
+          <th>Shapefile</th>
+          <th>KML</th>
+          <th>GeoPackage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for level in site.data.datasets.levels %}
+          {% for scope in level.scopes %}
+          <tr data-level="{{ level.key }}" data-search="{{ level.label | downcase }} {{ scope.label | downcase }} {{ scope.key }}">
+            <td>{{ level.label }} &mdash; {{ scope.label }}</td>
+            <td>{{ scope.feature_count }}</td>
+            <td><a href="{{ "/data/" | prepend: site.baseurl }}{{ scope.files.geojson.path }}" download>Download <span class="file-size">{{ scope.files.geojson.size_human }}</span></a></td>
+            <td><a href="{{ "/data/" | prepend: site.baseurl }}{{ scope.files.topojson.path }}" download>Download <span class="file-size">{{ scope.files.topojson.size_human }}</span></a></td>
+            <td><a href="{{ "/data/" | prepend: site.baseurl }}{{ scope.files.shapefile.path }}" download>Download <span class="file-size">{{ scope.files.shapefile.size_human }}</span></a></td>
+            <td><a href="{{ "/data/" | prepend: site.baseurl }}{{ scope.files.kml.path }}" download>Download <span class="file-size">{{ scope.files.kml.size_human }}</span></a></td>
+            <td><a href="{{ "/data/" | prepend: site.baseurl }}{{ scope.files.gpkg.path }}" download>Download <span class="file-size">{{ scope.files.gpkg.size_human }}</span></a></td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="catalog-empty" id="catalog-empty" hidden>No datasets match your search.</p>
+
+  <h2>License</h2>
+  <p>
+    All datasets are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
+    Attribution 4.0 International (CC BY 4.0)</a>. District boundaries are derived by dissolving local-level
+    boundaries by district, since no separately attributed district source exists; see
+    <a href="https://github.com/okfnepal/localboundaries" target="_blank" rel="noopener">the repository</a> for
+    the generation script.
+  </p>
+</div>
+
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var searchInput = document.getElementById('catalog-search');
+  var q = params.get('q');
+  if (q) searchInput.value = q;
+
+  var levelFilter = document.getElementById('catalog-level-filter');
+  var rows = document.querySelectorAll('.catalog-table tbody tr');
+  var emptyMsg = document.getElementById('catalog-empty');
+
+  function applyFilters() {
+    var text = searchInput.value.trim().toLowerCase();
+    var level = levelFilter.value;
+    var visibleCount = 0;
+    rows.forEach(function (row) {
+      var matchesText = !text || row.dataset.search.indexOf(text) !== -1;
+      var matchesLevel = !level || row.dataset.level === level;
+      var visible = matchesText && matchesLevel;
+      row.hidden = !visible;
+      if (visible) visibleCount++;
+    });
+    emptyMsg.hidden = visibleCount !== 0;
+  }
+
+  searchInput.addEventListener('input', applyFilters);
+  levelFilter.addEventListener('change', applyFilters);
+  applyFilters();
+</script>

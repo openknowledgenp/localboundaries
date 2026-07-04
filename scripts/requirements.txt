@@ -1,0 +1,5 @@
+geopandas
+pyogrio
+fiona
+shapely
+topojson

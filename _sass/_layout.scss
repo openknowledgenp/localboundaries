@@ -75,58 +75,6 @@ a h1:hover {
   }
 }
 
-.download-container {
-  ul {
-    font-weight: 700;
-    display: inline;
-    margin: 0;
-    padding: 0;
-    li {
-      font-weight: 700;
-      display: inline-block;
-      &:hover {
-        background: #fff;
-        ul {
-          display: block;
-        }
-      }
-      ul {
-        position: absolute;
-        width: 200px;
-        display: none;
-        li {
-          background: #fff;
-          color: #fff;
-          padding: 10px;
-
-          display: block;
-          a {
-            display: block !important;
-          }
-          &:hover {
-            color: #fff;
-            background: $brand-color;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* Site Map
- * ============================================== */
-#map {
-  height: 75vh;
-  min-height: 350px;
-  max-height: 700px;
-  width: 100%;
-
-  @include media-query($on-palm) {
-    height: 60vh;
-    min-height: 300px;
-  }
-}
-
 /* Page container
 * ============================================== */
 .page-content {
@@ -135,94 +83,24 @@ a h1:hover {
   width: 100%;
 }
 
-/* Download  container
-* ============================================== */
-.download-container {
-  padding: 20px 0;
-  border: 3px solid #3bb2ee;
-  text-align: center;
-}
-
 .file-size {
   font-weight: 400;
   color: $grey-color;
   font-size: 0.85em;
 }
 
-.buttonDownload {
-  display: inline-block;
-  position: relative;
-  padding: 10px 25px;
-  background-color: #3bb2ee;
-  color: white;
-  font-family: sans-serif;
-  text-decoration: none;
-  font-size: 0.9em;
-  text-align: center;
-  text-indent: 15px;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: #333;
-    color: white;
-  }
-  &:before,
-  &:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    left: 15px;
-    top: 52%;
-  }
-  &:before {
-    width: 10px;
-    height: 2px;
-    border-style: solid;
-    border-width: 0 2px 2px;
-  }
-  &:after {
-    width: 0;
-    height: 0;
-    margin-left: 3px;
-    margin-top: -7px;
-    border-style: solid;
-    border-width: 4px 4px 0 4px;
-    border-color: transparent;
-    border-top-color: inherit;
-    animation: downloadArrow 1s linear infinite;
-    animation-play-state: paused;
-  }
-  &:hover {
-    &:before {
-      border-color: #4cc713;
-    }
-    &:after {
-      border-top-color: #4cc713;
-      animation-play-state: running;
-    }
+/* Wide wrapper (data-dense pages: catalog, etc.)
+* ============================================== */
+.wide-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  @include media-query($on-palm) {
+    padding: 24px 16px;
   }
 }
 
-@keyframes downloadArrow {
-  0% {
-    margin-top: -7px;
-    opacity: 1;
-  }
-
-  0.001% {
-    margin-top: -15px;
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    margin-top: 0;
-    opacity: 0;
-  }
-}
 /* Site Footer
  * ============================================== */
 .footer {

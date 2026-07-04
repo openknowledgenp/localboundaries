@@ -1,0 +1,11 @@
+{
+  "provinces": 7,
+  "districts": 77,
+  "metropolitan": 6,
+  "sub_metropolitan": 11,
+  "municipality": 277,
+  "rural_municipality": 461,
+  "protected_areas": 22,
+  "total_local_level_features": 777,
+  "local_levels": 755
+}
