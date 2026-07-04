@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://localboundries.oknp.org" # the base hostname & protocol for your site
 twitter_username: OKNepal
-github_username: okfnepal
+github_username: openknowledgenp
 
 # Build settings
 markdown: redcarpet

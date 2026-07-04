@@ -38,5 +38,5 @@ appropriate credit.
 
 ## Contributing
 Found an error in the boundary data, or have an update to suggest? Open an issue or pull request on
-[GitHub](https://github.com/okfnepal/localboundaries). The data pipeline that generates every downloadable file
+[GitHub](https://github.com/openknowledgenp/localboundaries). The data pipeline that generates every downloadable file
 from source is in `scripts/generate_datasets.py`.
