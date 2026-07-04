@@ -3,14 +3,18 @@
 .site-header {
   min-height: 100px;
   background-color: $brand-color;
-  background-image: url("");
   background-size: cover;
   background-position: center -170px;
   background-attachment: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
 
   @include media-query($on-palm) {
-    min-height: 250px;
-    background-position: center -250px;
+    flex-direction: column;
+    padding: 20px 0;
   }
 }
 
@@ -25,13 +29,15 @@ a h1:hover {
   color: #fff;
   letter-spacing: 3px;
   text-align: center;
-  clear: both;
   text-transform: uppercase;
   font-family: "Open Sans";
+  margin-right: 20px;
 
   @include media-query($on-palm) {
-    font-size: 60px !important;
+    font-size: 32px !important;
     letter-spacing: 0px;
+    line-height: 1.4;
+    margin-right: 0;
   }
 }
 
@@ -48,9 +54,7 @@ a h1:hover {
 }
 
 .site-nav {
-  float: right;
   line-height: 56px;
-  margin-right: 25px;
 
   .page-link {
     line-height: $base-line-height;
@@ -112,10 +116,15 @@ a h1:hover {
 /* Site Map
  * ============================================== */
 #map {
-  height: 500px;
-  top: 0;
-  bottom: 0;
+  height: 75vh;
+  min-height: 350px;
+  max-height: 700px;
   width: 100%;
+
+  @include media-query($on-palm) {
+    height: 60vh;
+    min-height: 300px;
+  }
 }
 
 /* Page container
@@ -134,6 +143,12 @@ a h1:hover {
   text-align: center;
 }
 
+.file-size {
+  font-weight: 400;
+  color: $grey-color;
+  font-size: 0.85em;
+}
+
 .buttonDownload {
   display: inline-block;
   position: relative;
@@ -145,6 +160,8 @@ a h1:hover {
   font-size: 0.9em;
   text-align: center;
   text-indent: 15px;
+  border: none;
+  cursor: pointer;
   &:hover {
     background-color: #333;
     color: white;

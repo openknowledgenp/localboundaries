@@ -1,30 +1,33 @@
 <div class="site-header">
-
-    <h1> Local Boundaries</h1>
+    <h1><a href="{{ "/" | prepend: site.baseurl }}">Local Boundaries</a></h1>
+    <nav class="site-nav">
+        <a class="page-link" href="{{ "/" | prepend: site.baseurl }}">Home</a>
+        <a class="page-link" href="{{ "/about/" | prepend: site.baseurl }}">About</a>
+        <a class="page-link" href="https://github.com/okfnepal/localboundaries" target="_blank" rel="noopener">GitHub</a>
+    </nav>
 </div>
 <div id="map"></div>
 
 <div class="download-container">
     <ul>
         <li>
-            <a href="" class="buttonDownload">TopoJSON </a>
+            <button type="button" class="buttonDownload">TopoJSON</button>
             <ul>
                 <li>
-                    <a href="./css/province.topojson" download>Provinces</a>
+                    <a href="./css/province.topojson" download>Provinces <span class="file-size">(1.6 MB)</span></a>
                 </li>
-                <li><a href="./css/district.topojson" download>Districts</a></li>
-                <li><a href="./css/municipality.topojson" download>Local Levels</a></li>
+                <li><a href="./css/district.topojson" download>Districts <span class="file-size">(184 KB)</span></a></li>
+                <li><a href="./css/municipality.topojson" download>Local Levels <span class="file-size">(485 KB)</span></a></li>
             </ul>
         </li>
         <li>
-            <a href="#" class="buttonDownload" download>GeoJSON </a>
+            <button type="button" class="buttonDownload">GeoJSON</button>
             <ul>
                 <li>
-                    <a href="./js/province.geojson" download>Provinces</a>
+                    <a href="./js/province.geojson" download>Provinces <span class="file-size">(5.2 MB)</span></a>
                 </li>
-                <li><a href="./js/district.geojson" download>Districts</a></li>
-                <li><a href="./js/municipality.geojson">Local
-                        Levels</a></li>
+                <li><a href="./js/district.geojson" download>Districts <span class="file-size">(13.5 MB)</span></a></li>
+                <li><a href="./js/municipality.geojson" download>Local Levels <span class="file-size">(5.9 MB)</span></a></li>
             </ul>
         </li>
     </ul>
