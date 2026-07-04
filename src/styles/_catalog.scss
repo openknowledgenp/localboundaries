@@ -1,0 +1,141 @@
+@use "variables" as *;
+
+.catalog-page {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 40px;
+
+  @include media-query($on-palm) {
+    flex-direction: column;
+  }
+}
+
+.catalog-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+  padding: 30px 0;
+
+  h2 {
+    font-size: 0.95em;
+    margin-bottom: 1em;
+  }
+
+  @include media-query($on-palm) {
+    position: static;
+    width: 100%;
+    padding-bottom: 0;
+  }
+}
+
+.catalog-nav-group {
+  margin-bottom: 1.2em;
+}
+
+.catalog-nav-heading {
+  font-weight: bold;
+  font-size: 0.85em;
+  margin-bottom: 0.4em;
+}
+
+.catalog-nav-group a {
+  display: block;
+  font-size: 0.85em;
+  padding: 3px 0 3px 10px;
+  color: $grey-color-dark;
+  border-left: 2px solid $grey-color-light;
+
+  &:hover,
+  &.active {
+    color: $brand-color;
+    border-left-color: $brand-color;
+  }
+}
+
+.catalog-main {
+  flex: 1;
+  min-width: 0;
+  padding: 30px 0 60px;
+}
+
+.catalog-intro p {
+  color: $grey-color-dark;
+}
+
+.catalog-controls {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+
+  @include media-query($on-palm) {
+    flex-direction: column;
+  }
+
+  input[type="search"] {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid $grey-color-light;
+    border-radius: 4px;
+    font-size: 1em;
+    font-family: $base-font-family;
+  }
+}
+
+.catalog-section {
+  margin-bottom: 48px;
+  scroll-margin-top: 20px;
+}
+
+.catalog-section-title {
+  border-bottom: 2px solid $grey-color-light;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+}
+
+.catalog-section-note {
+  font-size: 0.9em;
+  color: $grey-color;
+  margin-bottom: 16px;
+}
+
+.catalog-table-wrap {
+  overflow-x: auto;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+
+  th,
+  td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid $grey-color-light;
+    white-space: nowrap;
+  }
+
+  th {
+    background: #fafafa;
+    font-weight: bold;
+  }
+
+  td:first-child {
+    white-space: normal;
+    font-weight: bold;
+  }
+
+  a {
+    display: inline-block;
+  }
+}
+
+.catalog-empty {
+  text-align: center;
+  color: $grey-color;
+  padding: 40px 0;
+}

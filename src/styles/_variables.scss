@@ -1,0 +1,30 @@
+// Base
+$base-font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.895;
+$base-line-height: 1.5;
+$spacing-unit:     30px;
+
+$text-color:       #454545;
+$background-color: #FFF;
+$brand-color:      #00B2EE;
+
+$grey-color:       #828282;
+$grey-color-light: #cccccc;
+$grey-color-dark:  #414141;
+
+$content-width: 700px;
+$on-palm:       700px;
+
+// Footer
+$footer-bg:      #1A1F3D;
+$footer-muted:   #9AA0A8;
+$footer-heading: #C2C6CE;
+$footer-border:  rgba(255, 255, 255, 0.1);
+$footer-bottom:  #7A808A;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}

@@ -1,0 +1,95 @@
+@use "sass:color";
+@use "variables" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure {
+  margin-bottom: calc(#{$spacing-unit} / 2);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 0;
+}
+
+h1 { font-size: 1.9em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1em; }
+h5 { font-size: .9em; }
+h6 { font-size: .8em; }
+
+a {
+  color: color.adjust($brand-color, $lightness: -10%);
+  text-decoration: none;
+
+  &:hover {
+    color: color.adjust($brand-color, $lightness: -20%);
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.wrapper {
+  max-width: calc(#{$content-width} - #{$spacing-unit} * 2);
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+
+  @include media-query($on-palm) {
+    max-width: calc(#{$content-width} - #{$spacing-unit});
+    padding: 0 calc(#{$spacing-unit} / 2);
+  }
+}
+
+.wide-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 30px;
+
+  @include media-query($on-palm) {
+    padding: 24px 16px;
+  }
+}
+
+.page-content {
+  margin-top: 40px;
+}
+
+.file-size {
+  font-weight: 400;
+  color: $grey-color;
+  font-size: 0.85em;
+}

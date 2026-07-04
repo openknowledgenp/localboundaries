@@ -1,25 +1,42 @@
-# About Local Boundaries
-Local Boundaries brings the detail geodata of new administrative units or maps of all administrative boundary defined by Nepal Government, in open and reusable format for free of costs.
+# Local Boundaries
 
-The local boundaries are available in two formats (TopoJSON and GeoJSON) and can be easily reused to map local authority data to an OpenStreetMap, Google Map, Leaflet or MapBox.
+Open, reusable administrative boundary data for Nepal's provinces, districts, and local levels, published as
+GeoJSON, TopoJSON, Shapefile, KML, and GeoPackage — whole-country or split per province.
 
-Published link: http://localboundries.oknp.org
+Published at: https://localboundries.oknp.org
 
-## Levels and types of local boundaries included
-* Provinces Level (7 Provinces)
-* Districts Level (77 Districts)
-* Local Levels (753 Local Levels)
+## Levels included
+* Provinces (7)
+* Districts (77) — dissolved from local-level boundaries by district
+* Local levels: Rural Municipality (Gaupalika), Municipality (Nagarpalika), Metropolitan City (Mahanagarpalika),
+  Sub-Metropolitan City (Upamahanagarpalika)
+* National parks, wildlife reserves, hunting reserves, and other protected/special areas
 
-### Local Levels Includes:
-* Rural Municipality (Gaupalika) 	
-* Municipality (Nagarpalika)
-* Metropolitan (Mahanagarpalika)
-* Sub-Metropolitan (Upamahanagarpalika)
-* National Parks
-* Wildlife Reserves 
-* Hunting Reserves 
+## Site
+
+The site is a static [Astro](https://astro.build) app.
+
+```
+npm install
+npm run dev       # local dev server
+npm run build     # build to dist/
+npm run preview   # preview the production build
+```
+
+Deployment is automatic via `.github/workflows/deploy.yml` on every push to `gh-pages`.
+
+## Data pipeline
+
+Every downloadable file under `public/data/` is generated from the source GeoJSON in `source/` by
+`scripts/generate_datasets.py`:
+
+```
+pip install -r scripts/requirements.txt
+python3 scripts/generate_datasets.py
+```
+
+This regenerates `public/data/`, `src/data/datasets.json` (the download catalog manifest), and
+`src/data/stats.json` (the homepage stat tiles).
 
 ## License
 The datasets are licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-
-

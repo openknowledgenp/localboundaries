@@ -24,8 +24,9 @@ import geopandas as gpd
 import topojson as tp
 
 SRC_DIR = sys.argv[1] if len(sys.argv) > 1 else "source"
-OUT_DIR = sys.argv[2] if len(sys.argv) > 2 else "data"
-MANIFEST_PATH = sys.argv[3] if len(sys.argv) > 3 else "_data/datasets.json"
+OUT_DIR = sys.argv[2] if len(sys.argv) > 2 else "public/data"
+MANIFEST_PATH = sys.argv[3] if len(sys.argv) > 3 else "src/data/datasets.json"
+STATS_PATH = sys.argv[4] if len(sys.argv) > 4 else "src/data/stats.json"
 
 PROVINCE_SLUGS = {
     1: "koshi", 2: "madhesh", 3: "bagmati", 4: "gandaki",
@@ -123,8 +124,8 @@ stats = {
     "total_local_level_features": len(gdf_ll),
 }
 stats["local_levels"] = stats["metropolitan"] + stats["sub_metropolitan"] + stats["municipality"] + stats["rural_municipality"]
-os.makedirs("_data", exist_ok=True)
-with open("_data/stats.json", "w") as f:
+os.makedirs(os.path.dirname(STATS_PATH) or ".", exist_ok=True)
+with open(STATS_PATH, "w") as f:
     json.dump(stats, f, indent=2)
 
 total_files = 0

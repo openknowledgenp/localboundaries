@@ -1,0 +1,25 @@
+---
+const path = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/map/', label: 'Map' },
+  { href: '/download/', label: 'Download' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<div class="site-header">
+  <h1><a href="/">Local Boundaries</a></h1>
+  <nav class="site-nav">
+    {links.map((link) => (
+      <a class:list={['page-link', { active: isActive(link.href) }]} href={link.href}>
+        {link.label}
+      </a>
+    ))}
+    <a class="page-link" href="https://github.com/openknowledgenp/localboundaries" target="_blank" rel="noopener">
+      GitHub
+    </a>
+  </nav>
+</div>

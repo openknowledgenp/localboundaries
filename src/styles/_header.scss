@@ -1,0 +1,65 @@
+@use "variables" as *;
+
+.site-header {
+  min-height: 100px;
+  background-color: $brand-color;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  @include media-query($on-palm) {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+}
+
+.site-header a {
+  color: #fff;
+}
+
+.site-header h1 {
+  font-size: 22px;
+  line-height: 80px;
+  color: #fff;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  margin-right: 20px;
+
+  @include media-query($on-palm) {
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 1.4;
+    margin-right: 0;
+  }
+}
+
+.site-nav {
+  line-height: 56px;
+
+  .page-link {
+    line-height: $base-line-height;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+
+    &:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.active {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+
+  @include media-query($on-palm) {
+    padding-bottom: 10px;
+  }
+}

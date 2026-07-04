@@ -1,0 +1,181 @@
+@use "sass:color";
+@use "variables" as *;
+
+.hero {
+  background: linear-gradient(135deg, $brand-color 0%, color.adjust($brand-color, $lightness: -25%) 100%);
+  color: #fff;
+  padding: 70px 20px 90px;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.4em;
+
+  @include media-query($on-palm) {
+    font-size: 1.6em;
+  }
+}
+
+.hero-tagline {
+  font-size: 1.1em;
+  opacity: 0.95;
+  margin-bottom: 1.6em;
+}
+
+.hero-search {
+  display: flex;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  input[type="search"] {
+    flex: 1;
+    border: none;
+    padding: 14px 18px;
+    font-size: 1em;
+    font-family: $base-font-family;
+    color: $text-color;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    border: none;
+    background: color.adjust($brand-color, $lightness: -15%);
+    color: #fff;
+    padding: 0 24px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background: color.adjust($brand-color, $lightness: -25%);
+    }
+  }
+}
+
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: $grey-color-light;
+  margin-top: -40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+
+  @include media-query($on-palm) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+  }
+}
+
+.stat-tile {
+  background: #fff;
+  padding: 24px 12px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: color.adjust($brand-color, $lightness: -10%);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8em;
+  color: $grey-color;
+  margin-top: 4px;
+}
+
+.feature-strip {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 30px;
+  text-align: center;
+
+  @include media-query($on-palm) {
+    flex-direction: column;
+    gap: 30px;
+    margin: 40px auto;
+  }
+}
+
+.feature {
+  flex: 1;
+
+  h3 {
+    margin-bottom: 0.3em;
+  }
+
+  p {
+    color: $grey-color;
+    font-size: 0.95em;
+  }
+}
+
+.feature-icon {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+.content-section {
+  padding-bottom: 40px;
+}
+
+/* Format/scope cards (geoBoundaries-style) */
+.format-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 30px;
+
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.format-card {
+  border: 1px solid $grey-color-light;
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: $text-color;
+  transition: box-shadow 0.15s, transform 0.15s;
+  display: block;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    color: $text-color;
+  }
+
+  h3 {
+    color: color.adjust($brand-color, $lightness: -12%);
+    margin-bottom: 0.4em;
+  }
+
+  p {
+    color: $grey-color;
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+}

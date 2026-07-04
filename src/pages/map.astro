@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import 'leaflet/dist/leaflet.css';
+---
+
+<BaseLayout title="Map" fullBleed>
+  <div class="map-page">
+    <aside class="map-sidebar">
+      <h2>Explore the map</h2>
+
+      <div class="map-search">
+        <input type="text" id="map-search-input" placeholder="Search a place&hellip;" autocomplete="off" />
+        <div id="map-search-results"></div>
+      </div>
+
+      <div class="layer-group">
+        <p class="layer-group-title">Boundary</p>
+
+        <label class="layer-toggle">
+          <span class="layer-toggle-icon" style="background:#D5E3FF;border:1px solid #555;"></span>
+          <span class="layer-toggle-label">Local Levels</span>
+          <span class="switch">
+            <input type="checkbox" id="layer-local-level" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="layer-toggle">
+          <span class="layer-toggle-icon" style="background:#fff;border:2px solid #222;"></span>
+          <span class="layer-toggle-label">Districts</span>
+          <span class="switch">
+            <input type="checkbox" id="layer-district" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="layer-toggle">
+          <span class="layer-toggle-icon" style="background:#fff;border:2px solid #e63946;"></span>
+          <span class="layer-toggle-label">Provinces</span>
+          <span class="switch">
+            <input type="checkbox" id="layer-province" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+      </div>
+
+      <p class="map-sidebar-note">
+        Click any boundary for details, or search above to jump straight to a place. <a href="/download/">Download this data &rarr;</a>
+      </p>
+    </aside>
+    <div id="map"></div>
+  </div>
+
+  <script>
+    import L from 'leaflet';
+    import { feature as topoFeature } from 'topojson-client';
+
+    const map = L.map('map', { zoomControl: false }).setView([28.1999999, 84.10014], 7);
+    L.control.zoom({ position: 'topright' }).addTo(map);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      maxZoom: 18,
+      minZoom: 6,
+      subdomains: 'abcd',
+      attribution:
+        'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Tiles by <a href="https://carto.com/attributions">CARTO</a>',
+    }).addTo(map);
+
+    function enterLayer(e: any) {
+      e.target.bringToFront();
+      e.target.setStyle({ weight: 2, opacity: 1 });
+    }
+    function leaveLayer(e: any) {
+      e.target.bringToBack();
+      e.target.setStyle({ weight: 1, opacity: 0.5 });
+    }
+
+    const localLevel = L.geoJSON(undefined, {
+      style: () => ({ fillColor: '#D5E3FF', fillOpacity: 1, color: '#555', weight: 1, opacity: 0.5 }),
+      onEachFeature(f, layer) {
+        const p = f.properties as any;
+        layer.bindTooltip(`${p.GaPa_NaPa} (${p.Type_GN})`, { sticky: true });
+        layer.bindPopup(`<strong>${p.GaPa_NaPa}</strong><br>${p.Type_GN}, ${p.DISTRICT} District`);
+        layer.on({ mouseover: enterLayer, mouseout: leaveLayer });
+      },
+    }).addTo(map);
+
+    const district = L.geoJSON(undefined, {
+      style: { weight: 2, color: '#222', fillColor: 'none' } as any,
+      onEachFeature(f, layer) {
+        const p = f.properties as any;
+        layer.bindTooltip(p.DISTRICT, { sticky: true });
+        layer.bindPopup(`<strong>${p.DISTRICT} District</strong><br>${p.PR_NAME}`);
+      },
+    }).addTo(map);
+
+    const province = L.geoJSON(undefined, {
+      style: { weight: 2.5, color: '#e63946', fillColor: 'none' } as any,
+      onEachFeature(f, layer) {
+        const p = f.properties as any;
+        layer.bindTooltip(p.PR_NAME, { sticky: true });
+        layer.bindPopup(`<strong>${p.PR_NAME}</strong>`);
+      },
+    }).addTo(map);
+
+    type SearchEntry = { label: string; layer: L.Layer & { getBounds?: () => L.LatLngBounds; openPopup?: () => void } };
+    const searchIndex: SearchEntry[] = [];
+
+    function loadBoundary(url: string, layer: L.GeoJSON, objectName: string, nameFn?: (props: any) => string) {
+      return fetch(url)
+        .then((r) => r.json())
+        .then((data) => {
+          layer.addData(topoFeature(data, data.objects[objectName]) as any);
+          if (nameFn) {
+            layer.eachLayer((sublayer: any) => {
+              const label = nameFn(sublayer.feature.properties);
+              if (label) searchIndex.push({ label, layer: sublayer });
+            });
+          }
+        })
+        .catch((err) => console.error('Failed to load ' + url, err));
+    }
+
+    const dataBase = '/data';
+    loadBoundary(`${dataBase}/local-level/nepal.topojson`, localLevel, 'local_levels', (p) => `${p.GaPa_NaPa} (${p.Type_GN})`);
+    loadBoundary(`${dataBase}/district/nepal.topojson`, district, 'districts', (p) => `${p.DISTRICT} District`);
+    loadBoundary(`${dataBase}/province/nepal.topojson`, province, 'provinces', (p) => p.PR_NAME);
+
+    function wireToggle(id: string, layer: L.Layer) {
+      document.getElementById(id)?.addEventListener('change', (e) => {
+        const checked = (e.target as HTMLInputElement).checked;
+        if (checked) map.addLayer(layer);
+        else map.removeLayer(layer);
+      });
+    }
+    wireToggle('layer-local-level', localLevel);
+    wireToggle('layer-district', district);
+    wireToggle('layer-province', province);
+
+    const searchInput = document.getElementById('map-search-input') as HTMLInputElement;
+    const resultsBox = document.getElementById('map-search-results') as HTMLDivElement;
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      resultsBox.innerHTML = '';
+      if (!q) return;
+      const matches = searchIndex.filter((e) => e.label.toLowerCase().includes(q)).slice(0, 20);
+      matches.forEach((m) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = m.label;
+        btn.addEventListener('click', () => {
+          const anyLayer = m.layer as any;
+          if (anyLayer.getBounds) map.fitBounds(anyLayer.getBounds(), { maxZoom: 12 });
+          if (anyLayer.openPopup) anyLayer.openPopup();
+          resultsBox.innerHTML = '';
+          searchInput.value = m.label;
+        });
+        resultsBox.appendChild(btn);
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!(e.target instanceof Node)) return;
+      if (!resultsBox.contains(e.target) && e.target !== searchInput) {
+        resultsBox.innerHTML = '';
+      }
+    });
+  </script>
+</BaseLayout>

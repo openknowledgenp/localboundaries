@@ -1,8 +1,10 @@
 ---
-layout: page
+layout: ../layouts/BaseLayout.astro
 title: About
-permalink: /about/
 ---
+
+# About
+
 **Local Boundaries** is a project by [Open Knowledge Nepal](https://oknp.org) that publishes the administrative
 boundary geodata of Nepal — provinces, districts, and local levels — as free, open, and reusable data, in
 whichever format your tools expect: GeoJSON, TopoJSON, Shapefile, KML, or GeoPackage.
@@ -12,8 +14,8 @@ categorized as rural municipality, municipality, metropolitan city, and sub-metr
 project, up-to-date digital boundary files for these units were difficult for developers, researchers, and
 civic-tech projects to find in an open format. Local Boundaries fills that gap.
 
-Explore the data on the [interactive map]({{ "/map/" | prepend: site.baseurl }}), or head straight to the
-[download catalog]({{ "/download/" | prepend: site.baseurl }}) for whole-country or per-province files.
+Explore the data on the [interactive map](/map/), or head straight to the
+[download catalog](/download/) for whole-country or per-province files.
 
 ## What's included
 * Provinces (7)

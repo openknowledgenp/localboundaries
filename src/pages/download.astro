@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import datasets from '../data/datasets.json';
+
+const SECTION_ID: Record<string, string> = {
+  province: 'provinces',
+  district: 'districts',
+  'local-level': 'local-levels',
+};
+
+const FORMAT_COLUMNS: Array<{ key: keyof (typeof datasets.levels)[number]['scopes'][number]['files']; label: string }> = [
+  { key: 'geojson', label: 'GeoJSON' },
+  { key: 'topojson', label: 'TopoJSON' },
+  { key: 'shapefile', label: 'Shapefile' },
+  { key: 'kml', label: 'KML' },
+  { key: 'gpkg', label: 'GeoPackage' },
+];
+---
+
+<BaseLayout title="Download" fullBleed>
+  <div class="catalog-page">
+    <aside class="catalog-sidebar">
+      <h2>Browse</h2>
+      <nav>
+        {datasets.levels.map((level) => (
+          <div class="catalog-nav-group">
+            <a class="catalog-nav-heading" href={`#${SECTION_ID[level.key]}`}>{level.label}</a>
+            {level.scopes.length > 1 && level.scopes.map((scope) => (
+              <a href={`#${level.key}-${scope.key}`}>{scope.key === 'nepal' ? 'All Nepal' : scope.label.split(' (')[0].replace(' Province', '')}</a>
+            ))}
+          </div>
+        ))}
+      </nav>
+    </aside>
+
+    <main class="catalog-main">
+      <h1>Download Catalog</h1>
+      <div class="catalog-intro">
+        <p>
+          All boundaries are in WGS84 (EPSG:4326). Pick a level from the sidebar, or search below, then
+          choose whichever format your tool needs.
+        </p>
+      </div>
+
+      <div class="catalog-controls">
+        <input type="search" id="catalog-search" placeholder="Search by province or district name&hellip;" />
+      </div>
+
+      {datasets.levels.map((level) => (
+        <section class="catalog-section" id={SECTION_ID[level.key]}>
+          <h2 class="catalog-section-title">{level.label}</h2>
+          {level.key === 'district' && (
+            <p class="catalog-section-note">
+              District boundaries are derived by dissolving local-level boundaries by district, since no
+              separately-attributed district source exists.
+            </p>
+          )}
+          <div class="catalog-table-wrap">
+            <table class="catalog-table">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Features</th>
+                  {FORMAT_COLUMNS.map((f) => <th>{f.label}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {level.scopes.map((scope) => (
+                  <tr id={`${level.key}-${scope.key}`} data-search={`${level.label} ${scope.label} ${scope.key}`.toLowerCase()}>
+                    <td>{scope.label}</td>
+                    <td>{scope.feature_count}</td>
+                    {FORMAT_COLUMNS.map((f) => {
+                      const file = (scope.files as any)[f.key];
+                      return (
+                        <td>
+                          <a href={`/data/${file.path}`} download>
+                            Download <span class="file-size">{file.size_human}</span>
+                          </a>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ))}
+
+      <p class="catalog-empty" id="catalog-empty" hidden>No datasets match your search.</p>
+
+      <h2>License</h2>
+      <p>
+        All datasets are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>. See <a href="https://github.com/openknowledgenp/localboundaries" target="_blank" rel="noopener">the repository</a> for the generation script.
+      </p>
+    </main>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const searchInput = document.getElementById('catalog-search') as HTMLInputElement;
+    const q = params.get('q');
+    if (q) searchInput.value = q;
+
+    const sections = document.querySelectorAll<HTMLElement>('.catalog-section');
+    const emptyMsg = document.getElementById('catalog-empty') as HTMLElement;
+
+    function applyFilters() {
+      const text = searchInput.value.trim().toLowerCase();
+      let totalVisible = 0;
+
+      sections.forEach((section) => {
+        const rows = section.querySelectorAll<HTMLTableRowElement>('tbody tr');
+        let sectionVisible = 0;
+        rows.forEach((row) => {
+          const visible = !text || (row.dataset.search ?? '').includes(text);
+          row.hidden = !visible;
+          if (visible) sectionVisible++;
+        });
+        section.hidden = sectionVisible === 0;
+        totalVisible += sectionVisible;
+      });
+
+      emptyMsg.hidden = totalVisible !== 0;
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    applyFilters();
+  </script>
+</BaseLayout>
