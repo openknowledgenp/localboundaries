@@ -1,13 +1,16 @@
-// Base
-$base-font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+// Base (fonts/colors follow idms.oknp.org)
+$base-font-family:    'DM Sans', ui-sans-serif, system-ui, sans-serif;
+$heading-font-family: 'Miriam Libre', ui-sans-serif, system-ui, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.895;
 $base-line-height: 1.5;
 $spacing-unit:     30px;
 
-$text-color:       #454545;
+$text-color:       #374151;
 $background-color: #FFF;
-$brand-color:      #00B2EE;
+$brand-color:       #2DD4BF; // teal-400
+$brand-color-light: #99F6E4; // teal-200
+$dark-color:        #171717; // near-black
 
 $grey-color:       #828282;
 $grey-color-light: #cccccc;
@@ -16,12 +19,17 @@ $grey-color-dark:  #414141;
 $content-width: 700px;
 $on-palm:       700px;
 
+// Header
+$header-border:  rgba(0, 0, 0, 0.08);
+$header-divider: #D2DADD;
+$header-muted:   #5A636B;
+
 // Footer
-$footer-bg:      #1A1F3D;
-$footer-muted:   #9AA0A8;
-$footer-heading: #C2C6CE;
+$footer-bg:      $dark-color;
+$footer-muted:   #A3A3A3;
+$footer-heading: #D4D4D4;
 $footer-border:  rgba(255, 255, 255, 0.1);
-$footer-bottom:  #7A808A;
+$footer-bottom:  #737373;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {

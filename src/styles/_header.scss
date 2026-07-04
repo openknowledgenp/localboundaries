@@ -1,65 +1,93 @@
+@use "sass:color";
 @use "variables" as *;
 
 .site-header {
-  min-height: 100px;
-  background-color: $brand-color;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid $header-border;
+}
+
+.site-header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
   padding: 0 20px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 
   @include media-query($on-palm) {
-    flex-direction: column;
-    padding: 20px 0;
+    padding: 14px 20px;
   }
 }
 
-.site-header a {
-  color: #fff;
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  text-decoration: none;
 }
 
-.site-header h1 {
-  font-size: 22px;
-  line-height: 80px;
-  color: #fff;
-  letter-spacing: 3px;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-  margin-right: 20px;
+.site-brand-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
 
-  @include media-query($on-palm) {
-    font-size: 32px;
-    letter-spacing: 0;
-    line-height: 1.4;
-    margin-right: 0;
-  }
+.site-brand-divider {
+  width: 1px;
+  height: 26px;
+  background: $header-divider;
+}
+
+.site-brand-name {
+  font-family: $heading-font-family;
+  font-weight: 700;
+  font-size: 18px;
+  color: $text-color;
 }
 
 .site-nav {
-  line-height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  @include media-query($on-palm) {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
 
   .page-link {
-    line-height: $base-line-height;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-
-    &:not(:first-child) {
-      margin-left: 20px;
-    }
+    position: relative;
+    font-weight: 500;
+    font-size: 15px;
+    color: $text-color;
+    padding: 6px 0;
+    display: inline-block;
 
     &:hover {
-      opacity: 0.8;
+      color: color.adjust($brand-color, $lightness: -15%);
     }
 
     &.active {
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-  }
+      color: $text-color;
 
-  @include media-query($on-palm) {
-    padding-bottom: 10px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        height: 3px;
+        background: $brand-color;
+        border-radius: 2px;
+      }
+    }
   }
 }

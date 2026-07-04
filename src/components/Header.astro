@@ -10,16 +10,19 @@ const links = [
 ];
 ---
 
-<div class="site-header">
-  <h1><a href="/">Local Boundaries</a></h1>
-  <nav class="site-nav">
-    {links.map((link) => (
-      <a class:list={['page-link', { active: isActive(link.href) }]} href={link.href}>
-        {link.label}
-      </a>
-    ))}
-    <a class="page-link" href="https://github.com/openknowledgenp/localboundaries" target="_blank" rel="noopener">
-      GitHub
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="/">
+      <img src="/images/okf-nepal-logo.png" alt="Open Knowledge Foundation Nepal" class="site-brand-logo" />
+      <span class="site-brand-divider"></span>
+      <span class="site-brand-name">Local Boundaries</span>
     </a>
-  </nav>
-</div>
+    <nav class="site-nav">
+      {links.map((link) => (
+        <a class:list={['page-link', { active: isActive(link.href) }]} href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
