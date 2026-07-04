@@ -3,13 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import stats from '../data/stats.json';
 ---
 
-<BaseLayout fullBleed>
+<BaseLayout title="Home" fullBleed>
   <section class="hero">
     <div class="hero-inner">
-      <h1>Local Boundaries of Nepal</h1>
+      <h1>LocalBoundaries of Nepal</h1>
       <p class="hero-tagline">
         Open, reusable administrative boundary data for Nepal's provinces, districts, and local
-        levels &mdash; in GeoJSON, TopoJSON, Shapefile, KML, and GeoPackage.
+        levels, in GeoJSON, TopoJSON, Shapefile, KML, and GeoPackage.
       </p>
       <form class="hero-search" action="/download/" method="get">
         <input type="search" name="q" placeholder="Search a province, district, or local level&hellip;" aria-label="Search boundary data" />
@@ -62,7 +62,7 @@ import stats from '../data/stats.json';
     <div class="feature">
       <div class="feature-icon">⬇️</div>
       <h3>Download in any format</h3>
-      <p>GeoJSON, TopoJSON, Shapefile, KML, or GeoPackage &mdash; pick whatever your tool needs.</p>
+      <p>Pick whatever your tool needs: GeoJSON, TopoJSON, Shapefile, KML, or GeoPackage.</p>
     </div>
     <div class="feature">
       <div class="feature-icon">🗺️</div>
@@ -94,11 +94,11 @@ import stats from '../data/stats.json';
       sub-metropolitan. The first local elections under this new structure were held in 2017.
     </p>
     <p>
-      <strong>Local Boundaries</strong> brings the detailed geodata of these administrative units, plus Nepal's
-      national parks and wildlife reserves, in an open and reusable format &mdash; free to reuse in QGIS,
+      <strong>LocalBoundaries</strong> brings the detailed geodata of these administrative units, plus Nepal's
+      national parks and wildlife reserves, in an open and reusable format that's free to reuse in QGIS,
       ArcGIS, OpenStreetMap, Google Maps, Leaflet, or Mapbox.
     </p>
-    <h2>Why Local Boundaries</h2>
+    <h2>Why LocalBoundaries</h2>
     <ul>
       <li>Quickly map local authority data onto OpenStreetMap, Google Maps, Leaflet, or Mapbox.</li>
       <li>Visualize and compare local-level data across Nepal for research or reporting.</li>

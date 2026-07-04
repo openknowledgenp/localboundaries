@@ -7,15 +7,20 @@ interface Props {
   title?: string;
   description?: string;
   fullBleed?: boolean;
+  // Markdown pages (e.g. about.md) pass their frontmatter nested under this prop
+  // instead of spreading it, since they set `layout:` in frontmatter directly.
+  frontmatter?: { title?: string; description?: string };
 }
 
-const siteTitle = 'Local Boundaries';
+const siteTitle = 'LocalBoundaries';
 const siteDescription =
   "Open, reusable boundary data for Nepal's provinces, districts, and local levels " +
   '(Gaupalika, Nagarpalika, Mahanagarpalika, Upamahanagarpalika) in GeoJSON, TopoJSON, Shapefile, KML, and GeoPackage.';
 
-const { title, description = siteDescription, fullBleed = false } = Astro.props;
-const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+const { title, description, fullBleed = false, frontmatter } = Astro.props;
+const pageTitleSegment = title ?? frontmatter?.title;
+const pageDescription = description ?? frontmatter?.description ?? siteDescription;
+const pageTitle = pageTitleSegment ? `${pageTitleSegment} | ${siteTitle}` : siteTitle;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -27,17 +32,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={canonicalURL} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonicalURL} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={pageDescription} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

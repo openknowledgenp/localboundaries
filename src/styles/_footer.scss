@@ -30,7 +30,7 @@
 
   a,
   span {
-    font-size: 14px;
+    font-size: 12px;
     color: $footer-muted;
     text-decoration: none;
   }
@@ -43,13 +43,13 @@
 
 .footer-heading {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 4px;
   color: $footer-heading;
 }
 
 .footer-tagline {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6;
   color: $footer-muted;
   margin: 0 0 20px;
@@ -87,7 +87,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 13px;
+  font-size: 11px;
   color: $footer-bottom;
 
   a {
