@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.0.6",
+    "astro": "^7.1.0",
     "leaflet": "^1.9.4",
     "topojson-client": "^3.1.0"
   },
